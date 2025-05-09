@@ -220,5 +220,30 @@ def team_names():
 
 print(team_names())
 
+def num_points_pergame(player_name):
+    for key in basketball_data:
+        for player in basketball_data[key]["players"]:
+            if player["name"] == player_name:
+                return f'{player_name} has {player["points_per_game"]} points'
+    return f'{player_name} does not exist'
+
+print(num_points_pergame("Evan Mobley"))
 # Return a list of jersey number of players
 
+def player_age(player_name):
+    for keys in basketball_data:
+        for player in basketball_data[keys]["players"]:
+            if player["name"] == player_name:
+                return f'{player_name} is {player["age"]} years old'
+    return f'{player_name} does not exists' 
+
+print(player_age("Isaac Okoro"))
+
+def player_stat(player_name):
+    for keys in basketball_data:
+        for player in basketball_data[keys]["players"]:
+            if player["name"] == player_name:
+                return f'{player_name} stats are:\n{player}'
+    return f'{player_name} does not exists'
+
+print(player_stat("Darius Garland"))
