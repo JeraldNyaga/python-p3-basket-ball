@@ -182,3 +182,43 @@ def game_dict():
             ]
         }
     }
+
+basketball_data = game_dict()
+
+def player_numbers(team_name):
+    jerseys = []
+
+    for keys in basketball_data:
+        if basketball_data[keys]["team_name"] == team_name:
+            for player in basketball_data[keys]["players"]:
+                jerseys.append(player["number"])
+    
+    return f'The {team_name} jerseys are: {jerseys}'
+
+
+print(player_numbers("Washington Wizards"))
+# To be able to iterate a dictionary and list using loops and if
+# Get the team data and check if the name matches if it matches print colors
+  
+
+def team_colors(team_name):
+    for venue in basketball_data:
+        if basketball_data[venue]["team_name"] == team_name:
+            return basketball_data[venue]["colors"]
+        
+    return f'{team_name} does not exists'
+        
+print(team_colors("Wash"))
+
+# Two main keys: Home and Away
+
+def team_names():
+    team_names = []
+    for keys in basketball_data:
+        team_names.append(basketball_data[keys]["team_name"])
+    return f'The team names are: {team_names}'
+
+print(team_names())
+
+# Return a list of jersey number of players
+
