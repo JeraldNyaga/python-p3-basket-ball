@@ -1,3 +1,4 @@
+import statistics
 def game_dict():
     return {
         "home": {
@@ -247,3 +248,22 @@ def player_stat(player_name):
     return f'{player_name} does not exists'
 
 print(player_stat("Darius Garland"))
+
+def average_rebounds_by_shoe_brand():
+    brands = []
+    brands_dict = {}
+    brands_avg_dict = {}
+    for keys in basketball_data:
+        for player in basketball_data[keys]["players"]:
+            if player["shoe_brand"] not in brands:
+                brands.append(player["shoe_brand"])
+                brands_dict[player["shoe_brand"]] = []
+        for player in basketball_data[keys]["players"]:
+            brands_dict[player["shoe_brand"]].append(player["rebounds_per_game"])
+    for key, items in brands_dict.items():
+        brand_avg = round(statistics.mean(items),2)
+        brands_avg_dict[key]=f'{brand_avg} average points'
+
+    return brands_avg_dict
+
+print(average_rebounds_by_shoe_brand())
